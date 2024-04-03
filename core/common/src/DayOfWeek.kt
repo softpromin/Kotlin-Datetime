@@ -8,7 +8,7 @@ package kotlinx.datetime
 /**
  * The enumeration class representing the days of the week.
  */
-public expect enum class DayOfWeek {
+public enum class DayOfWeek {
     MONDAY,
     TUESDAY,
     WEDNESDAY,

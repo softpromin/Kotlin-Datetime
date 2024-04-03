@@ -8,7 +8,7 @@ package kotlinx.datetime
 /**
  * The enumeration class representing the 12 months of the year.
  */
-public expect enum class Month {
+public enum class Month {
     /** January, month #01, with 31 days. */
     JANUARY,
 
