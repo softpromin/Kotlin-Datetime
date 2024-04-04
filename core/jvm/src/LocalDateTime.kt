@@ -82,3 +82,24 @@ public actual class LocalDateTime internal constructor(internal val value: jtLoc
 
 }
 
+@Deprecated(
+    "Use kotlinx.datetime.Month",
+    ReplaceWith("LocalDateTime(year, month.toKotlinMonth(), dayOfMonth, hour, minute, second, nanosecond)")
+)
+public fun LocalDateTime(
+    year: Int,
+    month: java.time.Month,
+    dayOfMonth: Int,
+    hour: Int,
+    minute: Int,
+    second: Int = 0,
+    nanosecond: Int = 0
+): LocalDateTime = LocalDateTime(
+    year,
+    month.toKotlinMonth(),
+    dayOfMonth,
+    hour,
+    minute,
+    second,
+    nanosecond
+)
