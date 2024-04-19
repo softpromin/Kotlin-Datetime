@@ -70,7 +70,7 @@ class DateTimeFormatSamples {
             customFormatAsKotlinCode.contains("""
                 monthNumber()
                 char('/')
-                dayOfMonth()
+                day()
                 char(' ')
                 year()
             """.trimIndent())
