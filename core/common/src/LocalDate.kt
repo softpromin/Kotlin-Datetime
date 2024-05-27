@@ -315,7 +315,7 @@ public fun String.toLocalDate(): LocalDate = LocalDate.parse(this)
  * @sample kotlinx.datetime.test.samples.LocalDateSamples.atTimeInline
  */
 public fun LocalDate.atTime(hour: Int, minute: Int, second: Int = 0, nanosecond: Int = 0): LocalDateTime =
-    LocalDateTime(year, month.number, day, hour, minute, second, nanosecond)
+    LocalDateTime(year, month, day, hour, minute, second, nanosecond)
 
 /**
  * Combines this date's components with the specified [LocalTime] components into a [LocalDateTime] value.

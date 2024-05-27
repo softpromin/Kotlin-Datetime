@@ -28,7 +28,7 @@ public actual class LocalDate actual constructor(public actual val year: Int, mo
     private val _month: Int = month
     @Deprecated("Use the 'month' property instead", ReplaceWith("this.month.number"), level = DeprecationLevel.WARNING)
     public actual val monthNumber: Int get() = _month
-    @Deprecated("Use the 'day' property instead", ReplaceWith("this.day"), level = DeprecationLevel.WARNING)
+    @Deprecated("Use the 'day' property instead", level = DeprecationLevel.WARNING)
     public actual val dayOfMonth: Int get() = day
 
     init {

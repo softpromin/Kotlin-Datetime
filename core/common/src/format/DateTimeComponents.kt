@@ -297,7 +297,7 @@ public class DateTimeComponents internal constructor(internal val contents: Date
     public var day: Int? by TwoDigitNumber(contents.date::day)
 
     /** @suppress */
-    @Deprecated("Use 'day' instead", ReplaceWith("day"))
+    @Deprecated("Use 'day' instead")
     public var dayOfMonth: Int? by TwoDigitNumber(contents.date::day)
 
     /**
