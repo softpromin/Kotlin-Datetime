@@ -283,7 +283,7 @@ public expect class LocalDateTime : Comparable<LocalDateTime> {
     public val day: Int
 
     /** @suppress */
-    @Deprecated("Use the 'day' property instead", ReplaceWith("day"), level = DeprecationLevel.WARNING)
+    @Deprecated("Use the 'day' property instead", level = DeprecationLevel.WARNING)
     public val dayOfMonth: Int
 
     /**
