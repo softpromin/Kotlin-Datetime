@@ -167,7 +167,7 @@ public expect class LocalDate : Comparable<LocalDate> {
      * - [day] `1..31`, the upper bound can be less, depending on the month
      *
      * @throws IllegalArgumentException if any parameter is out of range or if [day] is invalid for the
-     * given [monthNumber] and [year].
+     * given [month] and [year].
      * @sample kotlinx.datetime.test.samples.LocalDateSamples.constructorFunctionMonthNumber
      */
     public constructor(year: Int, month: Int, day: Int)
