@@ -30,7 +30,7 @@ import kotlin.internal.*
  *
  * ### Arithmetic operations
  *
- * Arithmetic operations on [LocalTime] are not provided, because they are not well-defined without a date and
+ * Arithmetic operations on [LocalTime] are not provided because they are not well-defined without a date and
  * a time zone.
  * See [LocalDateTime] for an explanation of why not accounting for time zone transitions may lead to incorrect results.
  * To perform arithmetic operations on time values, first, obtain an [Instant].
@@ -43,8 +43,8 @@ import kotlin.internal.*
  * val timeThreeHoursLater = instantThreeHoursLater.toLocalDateTime(TimeZone.currentSystemDefault()).time
  * ```
  *
- * Because this pattern is extremely verbose and difficult to get right, it is recommended to work exclusively
- * with [Instant] and only obtain a [LocalTime] when it is necessary to display the time to the user.
+ * Since this pattern is extremely verbose and difficult to get right, it is recommended to work exclusively
+ * with [Instant] and only obtain a [LocalTime] when displaying the time to the user.
  *
  * ### Platform specifics
  *
@@ -54,10 +54,10 @@ import kotlin.internal.*
  *
  * ### Construction, serialization, and deserialization
  *
- * [LocalTime] can be constructed directly from its components, using the constructor. See sample 1.
+ * [LocalTime] can be constructed directly from its components using the constructor. See sample 1.
  *
  * [fromSecondOfDay], [fromMillisecondOfDay], and [fromNanosecondOfDay] can be used to obtain a [LocalTime] from the
- * number of seconds, milliseconds, or nanoseconds since the start of the day, assuming there the offset from the UTC
+ * number of seconds, milliseconds, or nanoseconds since the start of the day, assuming that the offset from the UTC
  * does not change during the day.
  * [toSecondOfDay], [toMillisecondOfDay], and [toNanosecondOfDay] are the inverse operations.
  * See sample 2.
@@ -107,7 +107,7 @@ public expect class LocalTime : Comparable<LocalTime> {
          *
          * It is incorrect to pass to this function
          * the number of seconds that have physically elapsed since the start of the day.
-         * The reason is that, due to the daylight-saving-time transitions, the number of seconds since the start
+         * The reason is that, due to daylight-saving-time transitions, the number of seconds since the start
          * of the day is not a constant value: clocks could be shifted by an hour or more on some dates.
          * Use [Instant] to perform reliable time arithmetic.
          *
@@ -128,7 +128,7 @@ public expect class LocalTime : Comparable<LocalTime> {
          *
          * It is incorrect to pass to this function
          * the number of milliseconds that have physically elapsed since the start of the day.
-         * The reason is that, due to the daylight-saving-time transitions, the number of milliseconds since the start
+         * The reason is that, due to daylight-saving-time transitions, the number of milliseconds since the start
          * of the day is not a constant value: clocks could be shifted by an hour or more on some dates.
          * Use [Instant] to perform reliable time arithmetic.
          *
@@ -148,7 +148,7 @@ public expect class LocalTime : Comparable<LocalTime> {
          *
          * It is incorrect to pass to this function
          * the number of nanoseconds that have physically elapsed since the start of the day.
-         * The reason is that, due to the daylight-saving-time transitions, the number of nanoseconds since the start
+         * The reason is that, due to daylight-saving-time transitions, the number of nanoseconds since the start
          * of the day is not a constant value: clocks could be shifted by an hour or more on some dates.
          * Use [Instant] to perform reliable time arithmetic.
          *
@@ -263,7 +263,7 @@ public expect class LocalTime : Comparable<LocalTime> {
      * Returns the time as a second of a day, in `0 until 24 * 60 * 60`.
      *
      * Note that this is *not* the number of seconds since the start of the day!
-     * For example, `LocalTime(4, 0).toMillisecondOfDay()` will return `4 * 60 * 60`, the four hours'
+     * For example, `LocalTime(4, 0).toMillisecondOfDay()` will return `4 * 60 * 60`, the four hours
      * worth of seconds, but because of DST transitions, when clocks show 4:00, in fact, three, four, five, or
      * some other number of hours could have passed since the day started.
      * Use [Instant] to perform reliable time arithmetic.
@@ -279,7 +279,7 @@ public expect class LocalTime : Comparable<LocalTime> {
      * Returns the time as a millisecond of a day, in `0 until 24 * 60 * 60 * 1_000`.
      *
      * Note that this is *not* the number of milliseconds since the start of the day!
-     * For example, `LocalTime(4, 0).toMillisecondOfDay()` will return `4 * 60 * 60 * 1_000`, the four hours'
+     * For example, `LocalTime(4, 0).toMillisecondOfDay()` will return `4 * 60 * 60 * 1_000`, the four hours
      * worth of milliseconds, but because of DST transitions, when clocks show 4:00, in fact, three, four, five, or
      * some other number of hours could have passed since the day started.
      * Use [Instant] to perform reliable time arithmetic.
@@ -295,7 +295,7 @@ public expect class LocalTime : Comparable<LocalTime> {
      * Returns the time as a nanosecond of a day, in `0 until 24 * 60 * 60 * 1_000_000_000`.
      *
      * Note that this is *not* the number of nanoseconds since the start of the day!
-     * For example, `LocalTime(4, 0).toMillisecondOfDay()` will return `4 * 60 * 60 * 1_000_000_000`, the four hours'
+     * For example, `LocalTime(4, 0).toMillisecondOfDay()` will return `4 * 60 * 60 * 1_000_000_000`, the four hours
      * worth of nanoseconds, but because of DST transitions, when clocks show 4:00, in fact, three, four, five, or
      * some other number of hours could have passed since the day started.
      * Use [Instant] to perform reliable time arithmetic.
@@ -360,7 +360,7 @@ public fun String.toLocalTime(): LocalTime = LocalTime.parse(this)
 /**
  * Combines this time's components with the specified date components into a [LocalDateTime] value.
  *
- * There is no check of whether the time is valid on the specified date, because that depends on a time zone, which
+ * There is no check of whether the time is valid on the specified date because that depends on the time zone, which
  * this method does not accept.
  *
  * @sample kotlinx.datetime.test.samples.LocalTimeSamples.atDateComponentWiseMonthNumber
@@ -384,7 +384,7 @@ public fun LocalTime.atDate(year: Int, monthNumber: Int, dayOfMonth: Int, fakeAr
 /**
  * Combines this time's components with the specified date components into a [LocalDateTime] value.
  *
- * There is no check of whether the time is valid on the specified date, because that depends on a time zone, which
+ * There is no check of whether the time is valid on the specified date because that depends on the time zone, which
  * this method does not accept.
  *
  * @sample kotlinx.datetime.test.samples.LocalTimeSamples.atDateComponentWise
@@ -408,7 +408,7 @@ public fun LocalTime.atDate(year: Int, month: Month, dayOfMonth: Int, fakeArgume
 /**
  * Combines this time's components with the specified [LocalDate] components into a [LocalDateTime] value.
  *
- * There is no check of whether the time is valid on the specified date, because that depends on a time zone, which
+ * There is no check of whether the time is valid on the specified date because that depends on the time zone, which
  * this method does not accept.
  *
  * @sample kotlinx.datetime.test.samples.LocalTimeSamples.atDate

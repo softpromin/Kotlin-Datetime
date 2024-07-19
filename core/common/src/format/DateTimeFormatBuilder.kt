@@ -24,7 +24,7 @@ public sealed interface DateTimeFormatBuilder {
     public fun chars(value: String)
 
     /**
-     * Functions specific to the date-time format builders containing the local-date fields.
+     * Functions specific to the datetime format builders containing the local-date fields.
      */
     public sealed interface WithDate : DateTimeFormatBuilder {
         /**
@@ -103,7 +103,7 @@ public sealed interface DateTimeFormatBuilder {
     }
 
     /**
-     * Functions specific to the date-time format builders containing the local-time fields.
+     * Functions specific to the datetime format builders containing the local-time fields.
      */
     public sealed interface WithTime : DateTimeFormatBuilder {
         /**
@@ -218,11 +218,11 @@ public sealed interface DateTimeFormatBuilder {
     }
 
     /**
-     * Functions specific to the date-time format builders containing the local-date and local-time fields.
+     * Functions specific to the datetime format builders containing the local-date and local-time fields.
      */
     public sealed interface WithDateTime : WithDate, WithTime {
         /**
-         * An existing [DateTimeFormat] for the date-time part.
+         * An existing [DateTimeFormat] for the datetime part.
          *
          * @sample kotlinx.datetime.test.samples.format.LocalDateTimeFormatSamples.dateTime
          */
@@ -230,7 +230,7 @@ public sealed interface DateTimeFormatBuilder {
     }
 
     /**
-     * Functions specific to the date-time format builders containing the UTC-offset fields.
+     * Functions specific to the datetime format builders containing the UTC-offset fields.
      */
     public sealed interface WithUtcOffset : DateTimeFormatBuilder {
         /**
@@ -275,7 +275,7 @@ public sealed interface DateTimeFormatBuilder {
     }
 
     /**
-     * Builder for formats for values that have all the date-time components:
+     * Builder for formats for values that have all the datetime components:
      * date, time, UTC offset, and the timezone ID.
      */
     public sealed interface WithDateTimeComponents : WithDateTime, WithUtcOffset {
