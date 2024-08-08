@@ -6,6 +6,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinNativeCompile
 plugins {
     with(libs.plugins) {
         alias(kotlinx.infra)
+        alias(kotlinx.bcv)
         alias(kover)
 
         alias(kotlin.multiplatform) apply false
