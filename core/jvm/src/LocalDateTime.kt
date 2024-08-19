@@ -17,8 +17,7 @@ public actual typealias DayOfWeek = java.time.DayOfWeek
 
 @Serializable(with = LocalDateTimeIso8601Serializer::class)
 public actual class LocalDateTime internal constructor(
-    // only a `var` to allow Java deserialization
-    internal var value: jtLocalDateTime
+    internal val value: jtLocalDateTime
 ) : Comparable<LocalDateTime>, java.io.Serializable {
 
     public actual constructor(year: Int, monthNumber: Int, dayOfMonth: Int, hour: Int, minute: Int, second: Int, nanosecond: Int) :
@@ -88,4 +87,3 @@ public actual class LocalDateTime internal constructor(
 
     private fun writeReplace(): Any = Ser(Ser.DATE_TIME_TAG, this)
 }
-
